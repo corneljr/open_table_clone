@@ -1,0 +1,18 @@
+<% if @user.errors.any? %>
+	<div id='error_explanation'>
+		<h3><%= pluralize(@user.errors.count, 'error') %> prohibited the sign up</h3>
+
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+<% end %>
+
+
+<%= form_for @user do |f| %>
+	<%= f.text_field :email, placeholder: 'email' %>
+	<%= f.password_field :password, placeholder: 'password' %>
+	<%= f.password_field :password_confirmation, placeholder: 'password_confirmation' %>
+	<%= f.submit 'Sign up' %>
+<% end %>

@@ -1,0 +1,10 @@
+<h1>OpenTable</h1>
+
+<% unless current_user %>
+	<%= link_to 'Sign up', new_user_path %>
+	<%= link_to 'Sign in', new_session_path %>
+<% else %>
+	<%= link_to 'Sign out', session_path(current_user), method: 'delete' %>
+	<%= link_to 'My Account', current_user %>	
+<% end %>
+	<%= link_to 'Restaurant Directory', restaurants_path %>

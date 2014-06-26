@@ -1,0 +1,7 @@
+<%= form_for @restaurant do |restaurant| %>
+	<%= f.text_field :name, placeholder: 'Name' %>
+	<%= f.text_field :address, placeholder: 'Address' %>
+	<%= f.text_field :price_range, placeholder: 'Price Range ($10 - $20)' %>
+	<%= f.text_area :summary, placeholder: 'Restaurant Description' %>
+	<%= f.submit 'Add Restaurant' %>
+<% end %>

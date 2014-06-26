@@ -1,0 +1,16 @@
+<h2><%= current_user.email %></h2>
+
+<p>My Reservations</p>
+
+<% current_user.reservations.each do |reservation| %>
+	<p><% "#{reservation.restaurant}, #{reservation.time}" %></p>
+<% end %>
+
+<p>My Restaurants</p>
+
+<% current_user.restaurants.each do |restaurant| %>
+	<% link_to "#{restaurant.name}", restaurant_path(restaurant) %>
+<% end %>
+
+<%= link_to 'Add Restaurant', new_restaurant_path %>
+<%= link_to 'OpenTable', root_path %>
