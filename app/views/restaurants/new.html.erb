@@ -1,4 +1,15 @@
-<%= form_for @restaurant do |restaurant| %>
+<% if @restaurant.errors.any? %>
+	<div id='error_explanation'>
+		<h3><%= pluralize(@restaurant.errors.count, 'error') %> prohibited the restaurant from being saved:</h3>
+
+		<ul>
+			<% @restaurant.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+<% end %>
+
+<%= form_for @restaurant do |f| %>
 	<%= f.text_field :name, placeholder: 'Name' %>
 	<%= f.text_field :address, placeholder: 'Address' %>
 	<%= f.text_field :price_range, placeholder: 'Price Range ($10 - $20)' %>

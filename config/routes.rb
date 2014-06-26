@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'white_pages#home'
   resources :restaurants
   resources :users
+  resources :reservations
   resources :sessions, only: [:new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

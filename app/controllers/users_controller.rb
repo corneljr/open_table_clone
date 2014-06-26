@@ -29,6 +29,8 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@restaurants = current_user.restaurants
+		@reservations = current_user.reservations
 	end
 
 	private

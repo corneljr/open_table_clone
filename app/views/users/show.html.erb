@@ -2,15 +2,18 @@
 
 <p>My Reservations</p>
 
-<% current_user.reservations.each do |reservation| %>
-	<p><% "#{reservation.restaurant}, #{reservation.time}" %></p>
+<% unless @reservations.empty? %>
+	<% @reservations.each do |reservation| %>
+		<p><%= "#{reservation.restaurant}, #{reservation.address}, #{reservation.time}" %></p>
+	<% end %>
 <% end %>
 
 <p>My Restaurants</p>
 
-<% current_user.restaurants.each do |restaurant| %>
-	<% link_to "#{restaurant.name}", restaurant_path(restaurant) %>
+<% unless @restaurants.empty? %>
+	<% @restaurants.each do |restaurant| %>
+		<%= link_to "#{restaurant.name}", restaurant_path(restaurant) %>
+	<% end %>
 <% end %>
 
-<%= link_to 'Add Restaurant', new_restaurant_path %>
-<%= link_to 'OpenTable', root_path %>
+

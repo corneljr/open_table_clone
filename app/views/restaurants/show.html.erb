@@ -1,0 +1,14 @@
+<h1><%= @restaurant.name %></h1>
+<p><strong>Address:</strong><%= @restaurant.address%></p>
+<p><strong>Price:</strong><%= @restaurant.price_range%></p>
+<p><strong>Description:</strong><%= @restaurant.address%></p>
+
+<h2>Reserve a spot!</h2>
+
+<%= form_for @reservation do |f| %>
+
+	<%= select_datetime(Time.now, prefix: 'reservation', discard_minute: true, ampm: true) %>
+	<%= f.select :guest_count, (0..10) %>
+	<%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+	<%= f.submit 'Reserve!' %>
+<% end %>
