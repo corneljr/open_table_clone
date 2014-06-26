@@ -2,14 +2,13 @@ class Reservation < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :restaurant
 
-	# validates :availability
-
-	private
-
-	def availability
-		if !restaurant.availability?(party_size, party_time)
-			errors.add(:base, "Restaurant is full")
-		end
+	def available?(party_size, date)
+		restaurant.reservations.where(date: date).sum(:guest_count) + party_size <= 100
 	end
+
+	def already_reserved?(date, user)
+		restaurant.reservations.where(date: date, user_id: user.id).exists?
+	end
+	
 end
 

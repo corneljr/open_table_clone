@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'reviews/create'
+
+  get 'reviews/destroy'
+
   root 'white_pages#home'
-  resources :restaurants
+  resources :restaurants do
+    resources :reservations, only: [:create, :destroy]
+    resources :reviews, only: [:create, :destroy]
+  end
   resources :users
-  resources :reservations
   resources :sessions, only: [:new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

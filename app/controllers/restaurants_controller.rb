@@ -1,5 +1,9 @@
 class RestaurantsController < ApplicationController
 
+	def index
+		@restaurants = Restaurant.all.sort
+	end
+
 	def new
 		@restaurant = Restaurant.new
 	end
@@ -16,7 +20,8 @@ class RestaurantsController < ApplicationController
 	def show
 		@restaurant = Restaurant.find(params[:id])
 		@reservation = Reservation.new
-	end
+		@review = Review.new
+	end	
 
 	private
 
