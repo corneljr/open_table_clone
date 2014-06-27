@@ -1,0 +1,13 @@
+<h2><%= current_user.email %></h2>
+
+<p>My Restaurants</p>
+
+<% unless @restaurants.empty? %>
+	<% @restaurants.each do |restaurant| %>
+		<%= link_to "#{restaurant.name}", restaurant_path(restaurant) %>
+		<% restaurant.reservations.each do |reservation| %>
+			<%= reservation.time %>
+		<% end %>
+	<% end %>
+<% end %>
+

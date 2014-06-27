@@ -8,13 +8,3 @@
 		<p><%= "#{reservation.restaurant.name}, #{reservation.restaurant.address}, #{reservation.date}, #{reservation.guest_count} guests" %><%= link_to 'Delete Reservation', restaurant_reservation_path(reservation.restaurant.id, reservation.id), method: 'delete' %></p>
 	<% end %>
 <% end %>
-
-<p>My Restaurants</p>
-
-<% unless @restaurants.empty? %>
-	<% @restaurants.each do |restaurant| %>
-		<%= link_to "#{restaurant.name}", restaurant_path(restaurant) %>
-	<% end %>
-<% end %>
-
-

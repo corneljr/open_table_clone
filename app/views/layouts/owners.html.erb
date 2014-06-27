@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Opentable</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<%= render 'layouts/owners_header' %>
+
+	<div class='notice'><%= flash[:notice] %></div>
+	<div class='alert'><% flash[:alert] %></div>
+
+	<%= yield %>
+
+</body>
+</html>

@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140626191815) do
+ActiveRecord::Schema.define(version: 20140627151111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "owners", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reservations", force: true do |t|
     t.datetime "date"
@@ -33,6 +38,8 @@ ActiveRecord::Schema.define(version: 20140626191815) do
     t.integer  "user_id"
     t.string   "name"
     t.string   "price_range"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "reviews", force: true do |t|
@@ -49,6 +56,8 @@ ActiveRecord::Schema.define(version: 20140626191815) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "loyalty_points",  default: 0
+    t.string   "type"
   end
 
 end

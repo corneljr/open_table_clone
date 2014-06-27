@@ -1,7 +1,13 @@
 class RestaurantsController < ApplicationController
 
 	def index
-		@restaurants = Restaurant.all.sort
+		result = request.location
+		@restaurants = Restaurant.near(result, 5)
+		binding.pry
+	end
+
+	def all
+		@restaurants = Restaurant.all
 	end
 
 	def new

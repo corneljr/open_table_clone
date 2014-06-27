@@ -1,6 +1,4 @@
-<%= link_to 'Restraurants Near Me', restaurants_path %>
-
-<% @top10.each do |restaurant| %>
+<% @restaurants.each do |restaurant| %>
 	<p><%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %></p>
 	<p><%= restaurant.summary %></p>
 <% end %>
