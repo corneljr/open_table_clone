@@ -1,0 +1,13 @@
+<br>
+<br>
+<h5>Upcoming Reservations for <%= @restaurant.name %></h5>
+
+<ul class='small-block-grid-4'>
+	<% @reservations.each do |reservation| %>
+		<li>
+			<strong>Name:</strong><%= reservation.user.email %>
+			<strong>Guests:</strong><%= reservation.guest_count %>
+			<strong>Date:</strong><%= reservation.date %>
+		</li>
+	<% end %>
+</ul>

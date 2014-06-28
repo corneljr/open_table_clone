@@ -1,9 +1,9 @@
 class RestaurantsController < ApplicationController
 
 	def index
-		result = request.location
-		@restaurants = Restaurant.near(result, 5)
-		binding.pry
+		@distance = params[:miles]
+		@price = params[:price]
+		@restaurants = Restaurant.near(params[:q],@distance).where(price_range: @price)
 	end
 
 	def all

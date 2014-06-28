@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'white_pages#home'
   resources :restaurants do
-    resources :reservations, only: [:create, :destroy]
+    resources :reservations, only: [:create, :destroy, :index]
     resources :reviews, only: [:create, :destroy]
   end
   resources :users

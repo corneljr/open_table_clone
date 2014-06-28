@@ -1,6 +1,22 @@
-<%= link_to 'Restraurants Near Me', restaurants_path %>
+<div class='search'>
+	<div class="panel center">
+		<%= form_tag(restaurants_path, method: 'get') do %>
+			<%= text_field_tag :q, nil, placeholder:'Search for restaurants near....' %>
+			<%= select_tag :miles, options_for_select(1..20), prompt: 'Within how many km?' %>
+			<%= select_tag :price, options_for_select(['$10-$20', '$20-$30','$30-$40','$40+']), prompt: 'What price range?'  %>
+	  <%= submit_tag 'Search', class: 'button' %>
+	  <% end %>
+	</div>
+<div>
 
-<% @top10.each do |restaurant| %>
-	<p><%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %></p>
-	<p><%= restaurant.summary %></p>
-<% end %>
+<div class='featured'>
+	<h2>Featured Restaurants</h2>
+
+	<ul class="small-block-grid-4 center">
+		<% @top4.each do |restaurant| %>
+			<li class='panel'><h4><%= link_to "#{restaurant.name}", restaurant_path(restaurant.id), class: 'featured-title' %></h4>
+			<p><%= restaurant.summary %></p></li>
+	<% end %>
+
+	</ul>
+</div>

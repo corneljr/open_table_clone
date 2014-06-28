@@ -1,5 +1,4 @@
 class OwnersController < ApplicationController
-	layout 'owners'
 
 	def create
 		@owner = Owner.new(owner_params)

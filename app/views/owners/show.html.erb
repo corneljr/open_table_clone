@@ -1,13 +1,19 @@
-<h2><%= current_user.email %></h2>
+<div class='new-restaurant-button'>
+	<%= link_to 'Add Restaurant', new_restaurant_path, class: 'button expand'%>
+</div>
+
+<h3>Signed in as: <%= current_user.email %></h3>
 
 <p>My Restaurants</p>
 
-<% unless @restaurants.empty? %>
-	<% @restaurants.each do |restaurant| %>
-		<%= link_to "#{restaurant.name}", restaurant_path(restaurant) %>
-		<% restaurant.reservations.each do |reservation| %>
-			<%= reservation.time %>
+<ul class='small-block-grid-3 center'>
+	<% unless @restaurants.empty? %>
+		<% @restaurants.each do |restaurant| %>
+			<li>
+				<h5><%= restaurant.name %></h5>
+				<%= link_to 'Reservations', restaurant_reservations_path(restaurant), class: 'button tiny' %>
+			</li>
 		<% end %>
 	<% end %>
-<% end %>
+</ul>
 

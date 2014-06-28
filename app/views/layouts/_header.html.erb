@@ -1,14 +1,62 @@
-<h3>OpenTable</h3>
+<% if current_user && current_user.type == 'Owner' %>
+  <nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to 'OpenTable', root_path %></h1>
+    </li>
+    <li class='toggle-topbar menu-icon'><a href="#"><span>Menu</span></a></li>
+  </ul>
 
-<header>
-		<%= link_to 'OpenTable', root_path %>
-		<%= link_to 'Restaurant Directory', restaurants_path %>
-	<% unless current_user %>
-		<%= link_to 'Sign up', new_user_path %>
-		<%= link_to 'Sign in', new_session_path %>
-	<% else %>
-		<%= link_to 'Add Restaurant', new_restaurant_path %>
-		<%= link_to 'Sign out', session_path(current_user), method: 'delete' %>
-		<%= link_to 'My Account', current_user %>	
-	<% end %>
-</header>
+  <section class="top-bar-section">
+
+    <ul class="right">
+      <% if current_user %>
+        <li class="has-dropdown">
+          <%= link_to 'My Account', '#' %>  
+          <ul class="dropdown">
+            <li><%= link_to 'Profile', current_user %>  </li>
+            <li></li>
+            <li><%= link_to 'Sign out', session_path(current_user), method: 'delete' %></li>
+          </ul>
+        </li>
+       <% else %>
+        <li><%= link_to 'Sign up', new_user_path %></li>
+        <li><%= link_to 'Sign in', new_session_path %></li>
+       <% end %>
+    </ul>
+  </section>
+</nav>
+
+<% else %>
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><%= link_to 'OpenTable', root_path %></h1>
+      </li>
+      <li class='toggle-topbar menu-icon'><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <% if current_user %>
+  	      <li class="has-dropdown">
+  	        <%= link_to 'My Account', '#' %>	
+  	        <ul class="dropdown">
+  	        	<li><%= link_to 'Profile', current_user %>	</li>
+  	          <li><%= link_to 'Sign out', session_path(current_user), method: 'delete' %></li>
+  	        </ul>
+  	      </li>
+  	     <% else %>
+  	     	<li><%= link_to 'Sign up', new_user_path %></li>
+  	     	<li><%= link_to 'Sign in', new_session_path %></li>
+  	     <% end %>
+      </ul>
+
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <li><%= link_to 'Restaurant Directory', restaurants_path %></li>
+      </ul>
+    </section>
+  </nav>
+<% end %>

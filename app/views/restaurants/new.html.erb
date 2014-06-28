@@ -9,10 +9,15 @@
 		</ul>
 <% end %>
 
-<%= form_for @restaurant do |f| %>
-	<%= f.text_field :name, placeholder: 'Name' %>
-	<%= f.text_field :address, placeholder: 'Address' %>
-	<%= f.text_field :price_range, placeholder: 'Price Range ($10 - $20)' %>
-	<%= f.text_area :summary, placeholder: 'Restaurant Description' %>
-	<%= f.submit 'Add Restaurant' %>
-<% end %>
+<div class='new-form'>
+	<fieldset>
+		<legend>Create a new restaurant</legend>
+		<%= form_for @restaurant do |f| %>
+			<%= f.text_field :name, placeholder: 'Name' %>
+			<%= f.text_field :address, placeholder: 'Address' %>
+			<%= f.select :price_range, options_for_select(['$10-$20', '$20-$30','$30-$40','$40+']), prompt: 'Average entree price'  %>
+			<%= f.text_area :summary, placeholder: 'Restaurant Description' %>
+			<%= f.submit 'Add Restaurant', class: 'button tiny' %>
+		<% end %>
+	</fieldset>
+</div>

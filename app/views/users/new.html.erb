@@ -10,16 +10,26 @@
 <% end %>
 
 
-<%= form_for @patron do |f| %>
-	<%= f.text_field :email, placeholder: 'email' %>
-	<%= f.password_field :password, placeholder: 'password' %>
-	<%= f.password_field :password_confirmation, placeholder: 'password_confirmation' %>
-	<%= f.submit 'Sign up' %>
-<% end %>
+<div class='new-form'>
+	<fieldset>
+		<legend>User Sign Up</legend>
+		<%= form_for @patron do |f| %>
+			<%= f.text_field :email, placeholder: 'email' %>
+			<%= f.password_field :password, placeholder: 'password' %>
+			<%= f.password_field :password_confirmation, placeholder: 'password_confirmation' %>
+			<%= f.submit 'Sign up', class: 'button tiny' %>
+		<% end %>
+	</fieldset>
+</div>
 
-<%= form_for @owner do |f| %>
-	<%= f.text_field :email, placeholder: 'email' %>
-	<%= f.password_field :password, placeholder: 'password' %>
-	<%= f.password_field :password_confirmation, placeholder: 'password_confirmation' %>
-	<%= f.submit 'Sign up' %>
-<% end %>
+<div class='new-form'>	
+	<fieldset>
+	<legend>Restaurant Owner Sign Up</legend>
+	<%= form_for @owner do |f| %>
+		<%= f.text_field :email, placeholder: 'email' %>
+		<%= f.password_field :password, placeholder: 'password' %>
+		<%= f.password_field :password_confirmation, placeholder: 'password_confirmation' %>
+		<%= f.submit 'Sign up', class: 'button tiny' %>
+	<% end %>
+	</fieldset>
+</div>

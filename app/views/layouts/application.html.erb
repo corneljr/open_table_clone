@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Opentable</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<%= render 'layouts/header' %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-	<div class='notice'><%= flash[:notice] %></div>
-	<div class='alert'><% flash[:alert] %></div>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-	<%= yield %>
-
-</body>
+  <body>
+    
+    <%= render 'layouts/header' %>
+    <% if flash[:notice] %>
+      <div data-alert class='alert-box success radius'><%= flash[:notice] %></div>
+    <% elsif flash[:alert] %>
+      <div data-alert class='alert-box alert radius'><%= flash[:alert] %></div>
+    <% end %>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

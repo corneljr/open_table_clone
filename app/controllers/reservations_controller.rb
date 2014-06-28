@@ -21,6 +21,11 @@ class ReservationsController < ApplicationController
 		redirect_to current_user
 	end
 
+	def index
+		@restaurant = Restaurant.find(params[:restaurant_id])
+		@reservations = @restaurant.reservations.order('date DESC')
+	end
+
 	private
 
 	def reservation_params

@@ -1,4 +1,6 @@
-<h1>Restaurants</h1>
-<% @restaurants.each do |restaurant| %>
-	<%= link_to "#{restaurant.name}" %>
-<% end %>
+<h5>Restaurants within <%= @distance %> miles of your location, in the <%= @price %> price range.</h5>
+<ul>
+	<% @restaurants.each do |restaurant| %>
+		<li class='close-restaurants'><%= link_to "#{restaurant.name}", restaurant %></li>
+	<% end %>
+</ul>

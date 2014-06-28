@@ -1,31 +1,50 @@
 <p><%= flash[:alert] %></p>
 
-<h1><%= @restaurant.name %></h1>
-<p><strong>Address:</strong><%= @restaurant.address%></p>
-<p><strong>Price:</strong><%= @restaurant.price_range%></p>
-<p><strong>Description:</strong><%= @restaurant.address%></p>
+<div class='restaurant-show'>
+<div class='large-6 columns center'>
+		<h1 class='center'><%= @restaurant.name %></h1>
+		<h6><strong>Address</strong></h6>
+		<p><%= @restaurant.address%></p>
+		<h6><strong>Price</strong></h6>
+		<p><%= @restaurant.price_range%></p>
+		<h6><strong>Description</strong></h6>
+		<p><%= @restaurant.summary%></p>
+	</div>
+</div>
 
-<h2>Reserve a spot!</h2>
+<div class='large-6 columns'>
+	<fieldset>
+		<legend>Reserve a spot!</legend>
+		<%= form_for [@restaurant, @reservation] do |f| %>
+			<%= select_datetime(Time.now, prefix: 'reservation', discard_minute: true, ampm: true) %>
+			<%= f.select :guest_count, (2..15), prompt: 'Number of guests' %>
+			<%= f.submit 'Reserve!', class: 'button tiny' %>
+		<% end %>
+	</fieldset>
+</div>
+</div>
 
-<%= form_for [@restaurant, @reservation] do |f| %>
-
-	<%= select_datetime(Time.now, prefix: 'reservation', discard_minute: true, ampm: true) %>
-	<%= f.select :guest_count, (2..15) %>
-	<%= f.submit 'Reserve!' %>
-<% end %>
-
-<h2>Reviews</h2>
-<%= form_for [@restaurant, @review] do |f| %>
-	<%= f.select :rating, (1..5) %>
-	<%= f.text_area :body %>
-	<%= f.submit 'Post' %>
-<% end %>
-
-<% unless @restaurant.reviews.empty? %>
-	<% @restaurant.reviews.each do |review| %>
-			<% review.rating.times do %>
-				<p>&#9733</p>
-				<% end %>
-			<%= review.body %></p>
+<div class='reviews center'>
+	<h3>Reviews</h3>
+	<% unless @restaurant.reviews.empty? %>
+		<% @restaurant.reviews.each do |review| %>
+			<div class='panel'>
+				<p><% review.rating.times do %>
+					&#9733
+					<% end %></p>
+				<%= review.body %></p>
+			</div>
+		<% end %>
 	<% end %>
-<% end %>
+</div>
+
+<div class='center'>
+	<fieldset class='review'>
+		<legend>Add Review</legend>
+		<%= form_for [@restaurant, @review] do |f| %>
+			<%= f.select :rating, (1..5), prompt: 'Rating' %>
+			<%= f.text_area :body %>
+			<%= f.submit 'Post', class: 'button tiny' %>
+		<% end %>
+	</fieldset>
+</div>

@@ -1,0 +1,64 @@
+
+.center {
+	text-align: center;
+}
+
+.new-form {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+
+
+//home page
+
+.search {
+	width: 80%;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+a.featured-title {
+	padding: 5px;
+}
+
+//restaurant index
+
+ul {
+	list-style: none;
+}
+
+//owner profile
+
+.new-restaurant-button {
+	width: 25%;
+	float: right;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
+//show restaurant
+
+.restaurant-description {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+//review
+
+
+fieldset.review {
+	position: relative;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.reviews {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
