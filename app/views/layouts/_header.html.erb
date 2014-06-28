@@ -43,7 +43,8 @@
   	      <li class="has-dropdown">
   	        <%= link_to 'My Account', '#' %>	
   	        <ul class="dropdown">
-  	        	<li><%= link_to 'Profile', current_user %>	</li>
+  	        	<li><%= link_to 'My Reservations', current_user %></li>
+              <li><%= link_to 'Edit Settings', edit_user_path(current_user) %></li>
   	          <li><%= link_to 'Sign out', session_path(current_user), method: 'delete' %></li>
   	        </ul>
   	      </li>

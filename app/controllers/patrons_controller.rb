@@ -14,7 +14,7 @@ class PatronsController < ApplicationController
 	end
 
 	def show
-		@reservations = current_user.reservationsx
+		@reservations = current_user.reservations.order('date DESC')
 	end
 
 	def destroy

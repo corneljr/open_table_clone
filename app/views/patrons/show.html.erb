@@ -1,10 +1,17 @@
-<h2><%= current_user.email %></h2>
-<h3><%= current_user.loyalty_points %></h3>
+<h4 class='center'>Loyalty Points: <%= current_user.loyalty_points %></h4>
 
-<p>My Reservations</p>
+<h3 class='center'>My Reservations</h3>
 
 <% unless @reservations.empty? %>
-	<% @reservations.each do |reservation| %>
-		<p><%= "#{reservation.restaurant.name}, #{reservation.restaurant.address}, #{reservation.date}, #{reservation.guest_count} guests" %><%= link_to 'Delete Reservation', restaurant_reservation_path(reservation.restaurant.id, reservation.id), method: 'delete' %></p>
-	<% end %>
+	<div class='user-show'>
+		<% @reservations.each do |reservation| %>
+			<div class='panel center'>
+				<p><strong>Restaurant: </strong><%= reservation.restaurant.name %></p>
+				<p><strong>Address: </strong><%= reservation.restaurant.address %></p>
+				<p><strong>Date: </strong><%= reservation.date.to_date %></p>
+				<p><strong>Guests: </strong><%= reservation.guest_count %></p>
+				<%= link_to 'Delete Reservation', restaurant_reservation_path(reservation.restaurant.id, reservation.id), method: 'delete', class: 'button tiny' %></p>
+			</div>
+		<% end %>
+	</div>
 <% end %>
