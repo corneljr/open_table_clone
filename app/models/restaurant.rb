@@ -12,13 +12,7 @@ class Restaurant < ActiveRecord::Base
 	before_save :geocode #auto-fetches coordinates
 
 	def self.top4
-		limit(4).find_by_sql("SELECT * FROM restaurants 
-														INNER JOIN reviews ON restaurants.id = reviews.id 
-														INNER JOIN (
-															SELECT AVG(rating) avg_rating, restaurant_id 
-															FROM reviews 
-															GROUP BY restaurant_id) avg_res_rating ON restaurants.id = avg_res_rating.restaurant_id 
-														ORDER BY avg_res_rating.avg_rating DESC")
+		self.all.sample(4)
 	end
 
 	def get_address

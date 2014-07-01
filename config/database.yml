@@ -12,5 +12,5 @@ test:
 
 production:
   adapter: postgresql
-  database: photogur
+  database: from_the_crowd
   host: localhost

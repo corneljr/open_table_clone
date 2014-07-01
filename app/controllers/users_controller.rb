@@ -15,6 +15,12 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		@user = User.update(user_params)
+		if @user.save
+			redirect_to @user, notice: "Information successfully updated"
+		else
+			render :edit, alert: "Please fill out valid information"
+		end
 	end
 
 	private

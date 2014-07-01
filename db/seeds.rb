@@ -37,21 +37,21 @@ names = [
 lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 price = %w[$10-$20 $20-$30 $30-$40 '$40+']
 
-# address_list.zip(names).each do |address, name|
-# 	Restaurant.create(name: name, address: address, summary: lorem, user_id: rand(1..5), price_range: price.sample)
-# end
+address_list.zip(names).each do |address, name|
+	Restaurant.create(name: name, address: address, summary: lorem, user_id: rand(1..5), price_range: price.sample)
+end
 
-# emails_patron = %w[jim@jones.com josh@gmail.com jim@gmail.com bill@gmail.com someone@gmail.com]
-# emails_owner = %w[johnson@gmail.com other@gmail.com uruguay@gmail.com ithaca@gmail.com gogo@gmail.com]
+emails_patron = %w[jim@jones.com josh@gmail.com jim@gmail.com bill@gmail.com someone@gmail.com]
+emails_owner = %w[johnson@gmail.com other@gmail.com uruguay@gmail.com ithaca@gmail.com gogo@gmail.com]
 
-# emails_patron.each do |email|
-# 	User.create(email: email, password: 'password', password_confirmation: 'password', type: 'Patron')
-# end
+emails_patron.each do |email|
+	User.create(email: email, password: 'password', password_confirmation: 'password', type: 'Patron')
+end
 
 
-# emails_owner.each do |email|
-# 	User.create(email: email, password: 'password', password_confirmation: 'password', type: 'Owner')
-# end
+emails_owner.each do |email|
+	User.create(email: email, password: 'password', password_confirmation: 'password', type: 'Owner')
+end
 
 
   def rand_time(from=Time.now, to)

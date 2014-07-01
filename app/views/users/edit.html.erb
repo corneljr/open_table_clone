@@ -1,0 +1,11 @@
+<div class='new-form'>
+	<fieldset>
+		<legend>Edit Information</legend>
+		<%= form_for @user, "/users/#{@user.id}" do |f| %>
+			<%= f.text_field :email, placeholder: 'email' %>
+			<%= f.password_field :password, placeholder: 'password' %>
+			<%= f.password_field :password_confirmation, placeholder: 'password_confirmation' %>
+			<%= f.submit 'Sign up', class: 'button tiny' %>
+		<% end %>
+	</fieldset>
+</div>
