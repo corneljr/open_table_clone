@@ -6,7 +6,7 @@
 <body>
 	<h1>Welcome to opentable.com, <%= @user.email %></h1>
 	<p>You have successfully signed up, your username is <%= @user.email %>. <br></p>
-	<p>Please follow this link to <%= link_to 'log in', new_session_url %></p>
+	<p>Please follow this link to <%= url_for(host: 'localhost:3000', controller: 'sessions', action: 'new') %></p>
 	<p>If you have any feedback, please send us an email at blahblah@opentable.com</p>
 </body>
 </html>

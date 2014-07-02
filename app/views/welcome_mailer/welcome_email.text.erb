@@ -1,7 +1,9 @@
-Welcome to opentable.com, <%= @user.name %>
+Welcome to opentable.com, <%= @user.email %>
 ==================================================
 
 You have successfully signed up to opentable.com,
-your username is: <%= @user.login %>.
+your username is: <%= @user.email %>.
 
-To login to the site, just follow this link: <%= new_session_url %>
+To login to the site, just follow this link <%= url_for(host: 'localhost:3000', controller: 'sessions', action: 'new') %>.
+
+Thanks for joining and have a great day!

@@ -4,6 +4,7 @@ class OwnersController < ApplicationController
 		@owner = Owner.new(owner_params)
 
 		if @owner.save 
+			WelcomeMailer.welcome_email(@owner).deliver
 			session[:user_id] = @owner.id
 			flash[:notice] = 'Account successfully created'
 			redirect_to @owner
