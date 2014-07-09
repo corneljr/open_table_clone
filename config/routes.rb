@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :reservations, only: [:create, :destroy, :index]
     resources :reviews, only: [:create, :destroy]
   end
+
   resources :users
   resources :patrons, only: [:create, :destroy, :show]
   resources :owners, only: [:create, :destroy, :show]

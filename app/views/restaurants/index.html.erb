@@ -1,6 +1,10 @@
+<%= form_tag restaurants_path, method: :get, authentication: false, id: 'search-form' do %>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag 'Search' %>
+<%= end %>
+
 <h5>Restaurants within <%= @distance %> miles of your location, in the <%= @price %> price range.</h5>
 <ul>
-	<% @restaurants.each do |restaurant| %>
 		<li class='close-restaurants'><%= link_to "#{restaurant.name}", restaurant %></li>
 	<% end %>
 </ul>
