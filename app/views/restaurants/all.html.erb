@@ -5,7 +5,16 @@
 	<% end %>
 </div>
 
+
+
 <div id='restaurants-all'>
+	<h2><small><%= page_entries_info @restaurants %></small></h2>
+
 	<%= render @restaurants %>
+
+	<%= paginate @restaurants %>
 </div>
+
+
+
 

@@ -4,7 +4,6 @@ class PatronsController < ApplicationController
 		@patron = Patron.new(patron_params)
 
 		if @patron.save 
-			WelcomeMailer.welcome_email(@patron).deliver
 			session[:user_id] = @patron.id
 			flash[:notice] = 'Account successfully created'
 			redirect_to root_path
